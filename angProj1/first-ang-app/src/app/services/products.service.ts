@@ -12,7 +12,7 @@ import { ErrorService } from './error.service';
 })
 export class ProductsService {
   constructor(private http: HttpClient, private errorService: ErrorService) {}
-products: IProduct[]= []
+  products: IProduct[] = [];
   getAll(): Observable<IProduct[]> {
     return this.http
       .get<IProduct[]>('https://fakestoreapi.com/products', {
@@ -23,7 +23,7 @@ products: IProduct[]= []
       .pipe(
         // delay(1000),
         retry(2),
-        tap(products => this.products = products),
+        tap((products) => (this.products = products)),
         catchError(this.errorHandler.bind(this))
       );
   }
@@ -32,13 +32,8 @@ products: IProduct[]= []
     return throwError(() => error.message);
   }
   create(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>(
-      'https://fakestoreapi.com/products',
-      product
-    )
-    .pipe(
-        tap(prod => this.products.push(prod))
-    )
-
+    return this.http
+      .post<IProduct>('https://fakestoreapi.com/products', product)
+      .pipe(tap((prod) => this.products.push(prod)));
   }
 }

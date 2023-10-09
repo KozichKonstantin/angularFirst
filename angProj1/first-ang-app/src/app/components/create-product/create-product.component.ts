@@ -24,8 +24,8 @@ export class CreateProductComponent implements OnInit{
   }
   submit(){
     this.productService.create({
-      id: 10,
-      title: this.form.value as string,
+      // id: 10,
+      title: this.form.value.title as string,
       price: 13.5,
       description: 'lorem ipsum set',
       image: 'https://i.pravatar.cc',
