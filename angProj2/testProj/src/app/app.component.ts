@@ -8,5 +8,6 @@ import { products as data } from './data/products';
 })
 export class AppComponent {
   title = 'testProj';
-  products: IProduct[]= data;
+  // products: IProduct[]= data;
+  
 }
