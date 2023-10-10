@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { IProduct } from './models/prod';
 import { products as data } from './data/products';
 @Component({
@@ -9,5 +10,5 @@ import { products as data } from './data/products';
 export class AppComponent {
   title = 'testProj';
   // products: IProduct[]= data;
-  
+
 }

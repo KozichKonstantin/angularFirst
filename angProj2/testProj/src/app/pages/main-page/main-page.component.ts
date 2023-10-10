@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../models/prod';
-import { products as data } from '../../data/products';
+import {NgForm} from '@angular/forms';
+// import { products as data } from '../../data/products';
 import { ProductsService } from 'src/app/services/products-service';
 @Component({
   selector: 'app-main-page',
@@ -8,11 +9,11 @@ import { ProductsService } from 'src/app/services/products-service';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit{
-  products: IProduct[]= data;
+  products: IProduct[]= [];
   constructor(private productsService: ProductsService){
   }
   ngOnInit(): void {
-    this.productsService.getAll().subscribe(products=>{
+    this.productsService.getQ().subscribe(products=>{
       this.products = products
     })
   }

@@ -5,13 +5,14 @@
   </div>
   <div class="content">
     <app-search></app-search>
-    <div class="form">
+    <form #MyForm="ngForm">
       <app-table></app-table>
       <app-product
-        *ngFor="let product of products"
-        [product]="product"
-      ></app-product>
-    </div>
+        *ngFor="let product of products; index as i"
+        [product]="product" 
+      >
+    </app-product>
+    </form>
   </div>
   <div class="buttom">
     <button>Add Sensor</button>

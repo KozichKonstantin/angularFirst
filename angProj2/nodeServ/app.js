@@ -1,18 +1,23 @@
 const express = require("express");
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+// const http = require("http");
+// const fs = require("fs");
+// const path = require("path");
 const app = express();
 const Port = 3000;
-const bodyParser = require("body-parser");
-const { stringify } = require("querystring");
+// const bodyParser = require("body-parser");
+// const { stringify } = require("querystring");
 const urlencondedParcer = express.urlencoded({ extended: false });
 const jsonParcer = express.json;
 const cors = require('cors')
 app.listen(Port, (error) => {
   error ? console.log(error) : console.log(`listening port ${Port}`);
 });
-// import { db } from "./bd";
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PATCH, PUT, POST, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 const db = [
   {
     name: "Sensor 1",
@@ -117,8 +122,25 @@ const db = [
 //     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 //     res.sendStatus(204);
 //   });
-let stream = fs.createReadStream('./bd.js')
-app.use(cors());
-app.get("/getInfo", (req, res) => {
-      res.send(db)
+// let stream = fs.createReadStream('./bd.js')
+// app.use(cors());
+app.get("/getInfo", (req,res)=>{
+  let massQ = [];
+  let min = 0;
+  let max =4;
+  for(let i = min; i<max;i++){
+    massQ.push(db[i])
+  }
+      res.send(massQ)
+})
+app.post("/postinfo", jsonParcer, function (req, res) {
+  if(!req.body.min) return (console.log('somthig wrong', req.body))
+  console.log(req.body)
+  let massQ = []
+  let min = 0;
+  let max = 4;
+  for(let i = min; i<max;i++){
+    massQ.push(db[i])
+  }
+      res.send(massQ)
 });
