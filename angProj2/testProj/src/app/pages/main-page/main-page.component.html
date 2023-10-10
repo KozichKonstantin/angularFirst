@@ -1,0 +1,19 @@
+<div class="frm">
+  <div class="header">
+    <p>Sensor table</p>
+    <a href="/login">Logout</a>
+  </div>
+  <div class="content">
+    <app-search></app-search>
+    <div class="form">
+      <app-table></app-table>
+      <app-product
+        *ngFor="let product of products"
+        [product]="product"
+      ></app-product>
+    </div>
+  </div>
+  <div class="buttom">
+    <button>Add Sensor</button>
+  </div>
+</div>

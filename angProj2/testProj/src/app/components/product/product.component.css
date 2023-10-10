@@ -1,0 +1,23 @@
+.info{
+    background-color: gray;
+    font-size: large;
+    width: 100px;
+    border: solid 2px black;
+}
+.edit{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(208, 206, 206);
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 10px;
+}
+.close{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(208, 206, 206);
+    border: 1px solid rgb(85, 85, 85);
+    text-align: center;
+    margin-left: 10px;
+}

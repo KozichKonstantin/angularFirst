@@ -26,18 +26,15 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ProductPageComponent,
     AboutPageComponent,
     NavigationComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-  
-}
+export class AppModule {}
