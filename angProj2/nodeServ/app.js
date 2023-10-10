@@ -1,23 +1,22 @@
 const express = require("express");
-// const http = require("http");
-// const fs = require("fs");
-// const path = require("path");
 const app = express();
 const Port = 3000;
-// const bodyParser = require("body-parser");
-// const { stringify } = require("querystring");
-const urlencondedParcer = express.urlencoded({ extended: false });
+const bodyParser = require("body-parser");
+// const urlencondedParcer = express.urlencoded({extended: false});
 const jsonParcer = express.json;
 const cors = require('cors')
-app.listen(Port, (error) => {
-  error ? console.log(error) : console.log(`listening port ${Port}`);
-});
+// app.use(express.json())
+// app.use(express.urlencondedParcer({extended: false}))
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, PATCH, PUT, POST, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 })
+app.use(cors())
+app.listen(Port, (error) => {
+  error ? console.log(error) : console.log(`listening port ${Port}`);
+});
 const db = [
   {
     name: "Sensor 1",
@@ -116,29 +115,23 @@ const db = [
     location: "Room3",
   },
 ];
-// app.options("/", (req, res) => {
-//     res.setHeader("Access-Control-Allow-Origin", "https://example.com");
-//     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//     res.sendStatus(204);
-//   });
-// let stream = fs.createReadStream('./bd.js')
-// app.use(cors());
 app.get("/getInfo", (req,res)=>{
+  
   let massQ = [];
-  let min = 0;
-  let max =4;
+  let min = req.headers.min;
+  let max = req.headers.max;
   for(let i = min; i<max;i++){
     massQ.push(db[i])
   }
       res.send(massQ)
 })
-app.post("/postinfo", jsonParcer, function (req, res) {
-  if(!req.body.min) return (console.log('somthig wrong', req.body))
-  console.log(req.body)
+app.post("/postinfo",jsonParcer, (req, res) => {
+  console.log('aba')
+  if(!req.body.min) return (res.sendStatus(400))
+  console.log(req.body.min)
   let massQ = []
-  let min = 0;
-  let max = 4;
+  let min = req.body.min;
+  let max = req.body.max;
   for(let i = min; i<max;i++){
     massQ.push(db[i])
   }
