@@ -1,18 +1,4 @@
-
-const express = require("express");
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
-const app = express();
-const Port = 3000;
-const bodyParser = require("body-parser");
-const { stringify } = require("querystring");
-const urlencondedParcer = express.urlencoded({ extended: false });
-app.listen(Port, (error) => {
-  error ? console.log(error) : console.log(`listening port ${Port}`);
-});
-// import { db } from "./bd";
-const db = [
+export const db = [
     {
         name: 'Sensor 1',
         model: 'PC1212',
@@ -109,6 +95,3 @@ const db = [
         location: 'Room3' 
     },
 ]
-app.get('/getinfo', (req,res)=>{
-    res.send(JSON.stringify(db))
-})
