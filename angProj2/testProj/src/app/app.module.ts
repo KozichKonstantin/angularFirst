@@ -18,10 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     ProductComponent,
     LoginPageComponent,
-    MainPageComponent,
     EditPageComponent,
     SearchComponent,
     TableComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
