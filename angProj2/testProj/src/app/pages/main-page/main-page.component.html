@@ -7,20 +7,10 @@
     <app-search></app-search>
     <form #MyForm="ngForm">
       <app-table></app-table>
-      <!-- <app-product
-        *ngFor="let product of products; index as i"
-        [product]="product" 
-      >
-    </app-product> -->
     <tr *ngFor="let product of products | slice : (page - 1) * pageSize : page * pageSize">
       <app-product [product]="product"></app-product>
     </tr>
-      <!-- <app-pagination ></app-pagination> -->
-      <ngb-pagination
-        [(page)]="page"
-        [pageSize]="pageSize"
-        [collectionSize]="products.length"
-      ></ngb-pagination>
+      
     </form>
   </div>
   <div class="buttom">
@@ -28,8 +18,12 @@
       <button>Add Sensor</button>
     </div>
     <div class="section">
-      <!-- <app-pagination></app-pagination> -->
-      <!-- <p>Total: {{products.length}}</p> -->
+      <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="products.length"
+      ></ngb-pagination>
+      <p>Total: {{products.length}}</p>
     </div>
   </div>
 </div>
