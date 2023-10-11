@@ -1,11 +1,9 @@
-<!-- <div>
-    <button >
-        1
-    </button>
-    <button >
-        2
-    </button>
-    <button >
-        3
-    </button>
-</div> -->
+<!-- <tr *ngFor="let product of products | slice : (page - 1) * pageSize : page * pageSize">
+  <app-product [product]="product"></app-product>
+</tr> -->
+<ngb-pagination
+  [collectionSize]="12"
+  [pageSize]="4"
+  [(page)]="page"
+  aria-label="Default pagination"
+></ngb-pagination>

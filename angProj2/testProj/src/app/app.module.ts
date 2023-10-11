@@ -22,7 +22,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditPageComponent,
     SearchComponent,
     TableComponent,
-    PaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    PaginationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

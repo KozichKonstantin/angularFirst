@@ -45,3 +45,9 @@ form{
     display: flex;
     width: 50%;
 }
+tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
