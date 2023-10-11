@@ -36,3 +36,12 @@ form{
     align-items: center;
     justify-content: center;
 }
+.buttom{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.section{
+    display: flex;
+    width: 50%;
+}

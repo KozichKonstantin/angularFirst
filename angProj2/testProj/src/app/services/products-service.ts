@@ -15,7 +15,7 @@ export class ProductsService {
     return this.http.get<IProduct[]>('http://127.0.0.1:3000/getInfo',{
         headers: {
             min: '0',
-            max: '4'
+            max: '12'
         }
     })
   }
