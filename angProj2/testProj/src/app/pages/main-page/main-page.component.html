@@ -15,12 +15,12 @@
     <tr *ngFor="let product of products | slice : (page - 1) * pageSize : page * pageSize">
       <app-product [product]="product"></app-product>
     </tr>
-      <app-pagination ></app-pagination>
-      <!-- <ngb-pagination
-        [(page)]="1"
-        [pageSize]="4"
-        [collectionSize]="12"
-      ></ngb-pagination> -->
+      <!-- <app-pagination ></app-pagination> -->
+      <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="products.length"
+      ></ngb-pagination>
     </form>
   </div>
   <div class="buttom">

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { pagSet } from 'src/app/data/paginations';
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
@@ -10,6 +9,4 @@ import { pagSet } from 'src/app/data/paginations';
 })
 export class PaginationComponent {
   
-  page = pagSet.page;
-  pageSize = pagSet.pageSize;
 }
