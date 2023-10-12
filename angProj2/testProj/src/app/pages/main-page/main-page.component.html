@@ -6,17 +6,23 @@
   <div class="content">
     <!-- <app-search></app-search> -->
     <div class="searchPart">
-      <input class="search" type="text" placeholder="Filter products..." [(ngModel)]="searchValue" />
-      <button class="tapTo" type="button" (click)= "changeTerm(searchValue)">Search</button>
-      
+      <input
+        class="search"
+        type="text"
+        placeholder="Filter products..."
+        [(ngModel)]="searchValue"
+      />
+      <button class="tapTo" type="button" (click)="changeTerm(searchValue)">
+        Search
+      </button>
     </div>
     <form #MyForm="ngForm">
       <app-table></app-table>
       <tr
         *ngFor="
           let product of products
-          | filterPipe : term
-          | slice : (page - 1) * pageSize : page * pageSize
+            | filterPipe : term
+            | slice : (page - 1) * pageSize : page * pageSize
         "
       >
         <app-product [product]="product"></app-product>

@@ -21,7 +21,7 @@ export class MainPageComponent implements OnInit {
     this.page = 1;
     this.pageSize = 4;
     this.term ='';
-    this.changeTerm(this.term)
+    this.changeTerm();
   }
   ngOnInit(): void {
     this.productsService.getQ().subscribe((products) => {
