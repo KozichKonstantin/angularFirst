@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditPageComponent,
     SearchComponent,
     TableComponent,
-    MainPageComponent
+    MainPageComponent,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,

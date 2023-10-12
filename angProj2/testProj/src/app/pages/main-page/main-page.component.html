@@ -4,13 +4,22 @@
     <a href="/login">Logout</a>
   </div>
   <div class="content">
-    <app-search></app-search>
+    <!-- <app-search></app-search> -->
+    <div class="searchPart">
+      <input class="search" type="text" placeholder="Filter products..." [(ngModel)]="term" />
+      <button>Search</button>
+    </div>
     <form #MyForm="ngForm">
       <app-table></app-table>
-    <tr *ngFor="let product of products | slice : (page - 1) * pageSize : page * pageSize">
-      <app-product [product]="product"></app-product>
-    </tr>
-      
+      <tr
+        *ngFor="
+          let product of products
+          | filterPipe : term
+          | slice : (page - 1) * pageSize : page * pageSize
+        "
+      >
+        <app-product [product]="product"></app-product>
+      </tr>
     </form>
   </div>
   <div class="buttom">
@@ -23,7 +32,7 @@
         [pageSize]="pageSize"
         [collectionSize]="products.length"
       ></ngb-pagination>
-      <p>Total: {{products.length}}</p>
+      <p>Total: {{ products.length }}</p>
     </div>
   </div>
 </div>
