@@ -1,31 +1,49 @@
-h1{
+.head {
+  height: 90px;
+}
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
+h3 {
+    font-size: 20px;
+}
+.container {
+  background-color: rgba(151, 151, 151, 0.831);
+  width: 900px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: line;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: right;
+}
+p {
+  width: 100px;
+  height: 40px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+input {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 5px;
+  /* margin-left: 20px; */
+}
+button {
 
-}
-h3{
-
-}
-form{
-    display: flex;
-    flex-direction: line;
-    align-items: center;
-    justify-content: center;
-
-}
-.line{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: right;
-}
-p{
-    width: 100px;
-}
-input{
-    width: 200px;
-    height: 30px;
-    /* margin-left: 20px; */
-}
-button{
-    width: 200px;
-    height: 30px;
+  width: 200px;
+  height: 30px;
+  border: 1px solid;
 }

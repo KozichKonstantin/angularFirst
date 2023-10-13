@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const Port = 3000;
 const bodyParser = require("body-parser");
+// const router = express.Router();
 // const urlencondedParcer = express.urlencoded({extended: false});
 const jsonParcer = express.json;
 const cors = require('cors')
@@ -137,3 +138,7 @@ app.post("/postinfo",jsonParcer, (req, res) => {
   }
       res.send(massQ)
 });
+// app.post('/log', jsonParcer, (req, res)=>{
+//   console.log(req.body.login)
+//   res.end;
+// })
