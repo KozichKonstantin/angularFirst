@@ -16,6 +16,7 @@ export class MainPageComponent implements OnInit {
   public collectionSize : number;
   changeTerm(searchValue = ''): void{
     this.term = searchValue;
+    console.log(this.term, 'test')
   }
   constructor(private productsService: ProductsService) {
     this.page = 1;

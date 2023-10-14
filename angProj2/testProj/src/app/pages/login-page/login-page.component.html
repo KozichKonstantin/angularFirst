@@ -9,9 +9,9 @@
       <p>Password</p>
     </div>
     <div class="line">
-      <input type="text" placeholder="Your login"  [(ngModel)]="loginInp"/>
-      <input type="text" placeholder="Your password" [(ngModel)]="passwordInp"/>
-      <button type="submit" (click)="authorize()">Login</button>
+      <input type="text" placeholder="Your login" name="login" [(ngModel)]="loginInp"/>
+      <input type="text" placeholder="Your password" name="password" [(ngModel)]="passwordInp"/>
+      <button type="submit" type="button" (click)="authorize(loginInp, passwordInp)" >Login</button>
     </div>
   </form>
 </div>
