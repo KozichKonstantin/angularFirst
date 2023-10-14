@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
   public loginInp : string;
   public passwordInp: string;
   public value: string;
@@ -24,13 +24,21 @@ export class LoginPageComponent implements OnInit {
   }
   constructor (private authService: AuthService){
     this.user = {
-      login : this.login,
-      password : this.password
+      login : this.loginInp,
+      password : this.passwordInp
     }
   }
-  ngOnInit(): void {
+  authorize() : void{
+    console.log(this.user)
     this.authService.postAuth(this.user).subscribe((user) => {
       this.user = user;
+      console.log(this.user)
     });
   }
+  // ngOnInit(): void {
+  //   this.authService.postAuth(this.user).subscribe((user) => {
+  //     this.user = user;
+  //     console.log(this.user)
+  //   });
+  // }
 }

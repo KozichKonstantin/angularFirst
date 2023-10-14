@@ -115,6 +115,20 @@ const db = [
     location: "Room3",
   },
 ];
+const users = [
+  {
+      login: 'user',
+      password: 'password'
+  },
+  {
+      login: 'admin',
+      password: 'sudoAdmin'
+  },
+  {
+    login: 'default',
+    password: 'none'
+  }
+]
 app.get("/getInfo", (req,res)=>{
   
   let massQ = [];
@@ -137,8 +151,14 @@ app.post("/postinfo",jsonParcer, (req, res) => {
   }
       res.send(massQ)
 });
-app.post('/login', urlencondedParcer, (req,res)=>{
-  console.log(req)
-  console.log('hello');
-  res.sendStatus(200);
+app.post('/login', jsonParcer(), (req,res)=>{
+  for (let i =0; i < users.length; i++){
+    if((req.body.login == users[i].login)&&(req.body.password == users[i].password)){
+      res.send(users[i])
+    }
+    if(i == 2){
+      res.send(users[2])
+    }
+  }
 })
+
