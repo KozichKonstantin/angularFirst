@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { users } from 'src/app/models/user';
+import { Component, OnInit } from '@angular/core';
+import { userAuth, users } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent  {
+export class LoginPageComponent implements OnInit {
   public loginInp : string;
   public passwordInp: string;
   public value: string;
+  public login: string;
+  public password: string;
+  public user: userAuth;
   verification( value:string){
     for(let i = 0; i < users.length; i++){
       if (value == users[i].login){
@@ -17,5 +21,16 @@ export class LoginPageComponent  {
         console.log( value, users[i].login ,'err')
       }
     }
+  }
+  constructor (private authService: AuthService){
+    this.user = {
+      login : this.login,
+      password : this.password
+    }
+  }
+  ngOnInit(): void {
+    this.authService.postAuth(this.user).subscribe((user) => {
+      this.user = user;
+    });
   }
 }

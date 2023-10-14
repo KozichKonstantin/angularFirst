@@ -37,3 +37,7 @@ export const users: User [] = [
         password: 'sudoRootAdmin',
     }
 ]
+export interface userAuth {
+    login: string,
+    password: string
+}
