@@ -32,9 +32,5 @@ export class LoginPageComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    // this.authService.postAuth(this.user).subscribe((user) => {
-    //   this.user = user;
-    //   console.log(this.user)
-    // });
   }
 }

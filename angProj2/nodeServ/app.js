@@ -154,9 +154,11 @@ app.post("/postinfo",jsonParcer, (req, res) => {
 app.post('/login', jsonParcer(), (req,res)=>{
   for (let i =0; i < users.length; i++){
     if((req.body.login == users[i].login)&&(req.body.password == users[i].password)){
+      console.log('auth complete')
       res.send(users[i])
     }
     if(i == 2){
+      console.log('auth error')
       res.send(users[2])
     }
   }
