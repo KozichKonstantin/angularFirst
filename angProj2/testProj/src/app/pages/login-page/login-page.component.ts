@@ -6,31 +6,31 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit{
   public loginInp : string;
   public passwordInp: string;
   public value: string;
   public login: string;
   public password: string;
   public user: userAuth;
-  verification( value:string){
-    for(let i = 0; i < users.length; i++){
-      if (value == users[i].login){
-        console.log('verified')
-      }else{
-        console.log( value, users[i].login ,'err')
-      }
-    }
-  }
+  public term : string;
+  public searchValue: string;
   constructor (private authService: AuthService){
     this.user = {
-      login : this.login,
-      password : this.password
+      login : this.loginInp,
+      password : this.passwordInp
     }
+    this.term ='';
+    this.authorize();
   }
-  ngOnInit(): void {
+  authorize(login: string= '', password: string= '') : void{
+    this.user.login = login;
+    this.user.password = password;
     this.authService.postAuth(this.user).subscribe((user) => {
       this.user = user;
+      console.log(this.user)
     });
+  }
+  ngOnInit(): void {
   }
 }
