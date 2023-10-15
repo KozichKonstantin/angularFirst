@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../models/prod';
 import { ProductsService } from 'src/app/services/products-service';
-import { SearchComponent } from 'src/app/components/search/search.component';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
