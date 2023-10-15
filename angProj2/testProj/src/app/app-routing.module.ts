@@ -5,11 +5,11 @@ import LoginPageComponent from './pages/login-page/login-page.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'main',
     component: MainPageComponent,
   },
   {
-    path: 'login',
+    path: '',
     component: LoginPageComponent,
   },
 ];

@@ -118,15 +118,18 @@ const db = [
 const users = [
   {
       login: 'user',
-      password: 'password'
+      password: 'password',
+      abilities: 'limited'
   },
   {
       login: 'admin',
-      password: 'sudoAdmin'
+      password: 'sudoAdmin',
+      abilities: 'full'
   },
   {
     login: 'default',
-    password: 'none'
+    password: 'none',
+    abilities: 'none'
   }
 ]
 app.get("/getInfo", (req,res)=>{

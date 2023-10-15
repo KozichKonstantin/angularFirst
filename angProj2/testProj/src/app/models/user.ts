@@ -39,5 +39,6 @@ export const users: User [] = [
 ]
 export interface userAuth {
     login: string,
-    password: string
+    password: string,
+    abilities:string
 }
