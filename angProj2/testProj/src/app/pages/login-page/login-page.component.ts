@@ -15,20 +15,24 @@ export class LoginPageComponent implements OnInit {
   public password: string;
   public user: userAuth;
   public term: string;
+  public abilities: string;
   public searchValue: string;
   constructor(private authService: AuthService, private router: Router) {
     this.user = {
       login: this.loginInp,
       password: this.passwordInp,
+      abilities: this.abilities
     };
     this.term = '';
     this.authorize();
   }
   goHome() {
-    if (this.user.login == 'user' || this.user.login == 'admin') {
-      this.router.navigate(['']);
+    if (this.user.abilities =='limited' || this.user.abilities == 'full')  {
+      localStorage.setItem('abilities', this.user.abilities)
+      this.router.navigate(['main']);
     } else {
       console.log('error, not authorized');
+      localStorage.setItem('abilities', this.user.abilities)
     }
   }
   authorize(login: string = '', password: string = ''): void {
@@ -37,6 +41,7 @@ export class LoginPageComponent implements OnInit {
     this.authService.postAuth(this.user).subscribe((user) => {
       this.user = user;
       console.log(this.user);
+      this.goHome()
     });
   }
   ngOnInit(): void {}
