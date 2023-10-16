@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { userAuth} from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { mainGuard } from 'src/app/guards/guard';
+import { GuardService } from 'src/app/services/guard.service';
+import {inject} from '@angular/core';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -12,13 +15,12 @@ export class LoginPageComponent implements OnInit {
   public passwordInp: string;
   public value: string;
   public login: string;
-  private password: string;
   public user: userAuth;
   public term: string;
   public abilities: string;
   public searchValue: string;
   public loginErr: boolean;
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService,private router: Router) {
     this.user = {
       login: this.loginInp,
       password: this.passwordInp,
@@ -26,15 +28,21 @@ export class LoginPageComponent implements OnInit {
     };
     this.term = '';
     this.loginErr = false;
+    this.goHome()
+    /**
+     * 
+     * * */
   }
   goHome() {
     if (this.user.abilities =='limited' || this.user.abilities == 'full')  {
       localStorage.setItem('abilities', this.user.abilities);
-      this.loginErr =false;
+      this.loginErr =true;
+      mainGuard(this.loginErr);
       this.router.navigate(['main']);
     } else {
       console.log('error, not authorized');
-      this.loginErr = true;
+      this.loginErr = false;
+      mainGuard(this.loginErr);
       localStorage.setItem('abilities', this.user.abilities)
     }
   }
