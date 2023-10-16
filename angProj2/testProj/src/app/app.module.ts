@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     SearchComponent,
     TableComponent,
     MainPageComponent,
-    FilterPipePipe
+    FilterPipePipe,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

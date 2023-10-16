@@ -12,11 +12,12 @@ export class LoginPageComponent implements OnInit {
   public passwordInp: string;
   public value: string;
   public login: string;
-  public password: string;
+  private password: string;
   public user: userAuth;
   public term: string;
   public abilities: string;
   public searchValue: string;
+  public loginErr: boolean;
   constructor(private authService: AuthService, private router: Router) {
     this.user = {
       login: this.loginInp,
@@ -24,14 +25,16 @@ export class LoginPageComponent implements OnInit {
       abilities: this.abilities
     };
     this.term = '';
-    this.authorize();
+    this.loginErr = false;
   }
   goHome() {
     if (this.user.abilities =='limited' || this.user.abilities == 'full')  {
-      localStorage.setItem('abilities', this.user.abilities)
+      localStorage.setItem('abilities', this.user.abilities);
+      this.loginErr =false;
       this.router.navigate(['main']);
     } else {
       console.log('error, not authorized');
+      this.loginErr = true;
       localStorage.setItem('abilities', this.user.abilities)
     }
   }

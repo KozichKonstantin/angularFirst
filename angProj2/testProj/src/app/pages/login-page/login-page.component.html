@@ -14,4 +14,7 @@
       <button type="submit" type="button" (click)="authorize(loginInp, passwordInp)"  >Login</button>
     </div>
   </form>
+  <div >
+  <app-popup *ngIf="loginErr"></app-popup>
+  </div>
 </div>
