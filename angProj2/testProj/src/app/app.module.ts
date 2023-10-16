@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-import { AuthService } from './services/auth.service';
+import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { AuthService } from './services/auth.service';
     TableComponent,
     MainPageComponent,
     FilterPipePipe,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
