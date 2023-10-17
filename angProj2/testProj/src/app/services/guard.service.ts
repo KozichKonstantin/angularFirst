@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
+export const mainpageguardGuard: CanActivateFn = () => {
+  if(localStorage.getItem('abilities') == 'limited'){
+    return true
+  }
+  return false
+};
 
-@Injectable({
-  providedIn: 'root'
-})
-export class GuardService {
-  isLoggedIn:boolean;
-  login(value: boolean): void{
-    this.isLoggedIn = value;
-  }
-  logout(value: boolean): void{
-    this.isLoggedIn = value;
-  }
-  constructor() { }
-}
