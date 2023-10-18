@@ -26,7 +26,7 @@
         "
       >
         <app-product id = "{{i}}"[product]="product" ></app-product>
-        <button >delete</button>
+        <button (click)="func(product, i )">delete</button>
       </tr>
     </form>
   </div>

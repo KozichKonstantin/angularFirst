@@ -7,6 +7,6 @@ import { IProduct } from '../../models/prod';
 })
 export class ProductComponent {
   @Input() product: IProduct;
-  deleting (){
+  deleting (value: number){
   }
 }
