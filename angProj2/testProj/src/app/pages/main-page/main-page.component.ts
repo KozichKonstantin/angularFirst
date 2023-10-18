@@ -14,7 +14,12 @@ export class MainPageComponent implements OnInit {
   public pageSize : number;
   public collectionSize : number;
   func(product:IProduct){
-    this.products = this.products.filter((productEl)=> productEl !== product)
+    if(localStorage.getItem('abilities') == 'full' ){
+      this.products = this.products.filter((productEl)=> productEl !== product)
+    }
+    else{
+      return console.log('not anought rights')
+    }
   }
   changeTerm(searchValue = ''): void{
     this.term = searchValue;
