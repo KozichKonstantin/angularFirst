@@ -13,6 +13,10 @@ export class MainPageComponent implements OnInit {
   public page : number;
   public pageSize : number;
   public collectionSize : number;
+  func(product:IProduct, i:number){
+    console.log(product, i)
+    this.products = this.products.filter((productEl)=> productEl !== product)
+  }
   changeTerm(searchValue = ''): void{
     this.term = searchValue;
     console.log(this.term, 'test')
