@@ -33,7 +33,7 @@ h4{
     margin-right: 10px;
     font-size: smaller;
 }
-input{
+input, select{
     border: 1px solid;
     height: 30px;
     width: 300px;
