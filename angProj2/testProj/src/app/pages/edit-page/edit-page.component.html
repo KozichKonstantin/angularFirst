@@ -1,1 +1,73 @@
-<p>edit-page works!</p>
+<div class="container">
+  <h1>Add/edit</h1>
+  <form>
+    <div class="column">
+      <div class="block">
+        <h3>Name</h3>
+      </div>
+      <div class="block">
+        <h3>Model*</h3>
+      </div>
+      <div class="block line">
+        <h3>Range</h3>
+        <h4>From</h4>
+      </div>
+      <div class="block">
+        <h3>Type</h3>
+      </div>
+      <div class="block">
+        <h3>Unit</h3>
+      </div>
+      <div class="block">
+        <h3>Location</h3>
+      </div>
+      <div class="block">
+        <h3>Description</h3>
+      </div>
+    </div>
+    <div class="column">
+      <div class="block">
+        <input placeholder="Name" />
+      </div>
+      <div class="block">
+        <input placeholder="Model" />
+      </div>
+      <div class="block line">
+        <input type="number" class="small" value="12" />
+        <h4>To</h4>
+        <input type="number" class="small" value="45" />
+      </div>
+      <div class="block">
+        <select name="" id="">
+          <option value disabled selected>Select</option>
+          <option>Pressure</option>
+          <option>Voltage</option>
+          <option>Temperature</option>
+          <option>Humidity</option>
+        </select>
+      </div>
+      <div class="block">
+        <select name="" id="">
+          <option value disabled selected>Select</option>
+          <option>bar</option>
+          <option>voltage</option>
+          <option>*C</option>
+          <option>%</option>
+        </select>
+      </div>
+      <div class="block">
+        <input placeholder="location" />
+      </div>
+      <div class="block">
+        <input
+          class="area"
+          placeholder="Here is a some text input. \n here is another paragraph of input"
+        />
+      </div>
+    </div>
+  </form>
+  <div class="buttons">
+    <button type="submit" (click)="goHome('post')">Save</button>
+    <button type="submit" (click)="goHome()">Cancel</button>
+  </div>
+</div>

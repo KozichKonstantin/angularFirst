@@ -14,11 +14,13 @@ export class MainPageComponent implements OnInit {
   public pageSize : number;
   public collectionSize : number;
   func(product:IProduct){
-    if(localStorage.getItem('abilities') == 'full' ){
       this.products = this.products.filter((productEl)=> productEl !== product)
-    }
-    else{
-      return console.log('not anought rights')
+  }
+  checkUser(){
+    if(localStorage.getItem('abilities') == 'full'){
+      return true
+    }else{
+      return false
     }
   }
   changeTerm(searchValue = ''): void{
