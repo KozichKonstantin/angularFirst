@@ -18,17 +18,21 @@
     </div>
     <form #MyForm="ngForm">
       <app-table></app-table>
-      <tr 
+      <tr
         *ngFor="
-          let product of products 
+          let product of products
             | filterPipe : term
-            | slice : (page - 1) * pageSize : page * pageSize; let i = index
+            | slice : (page - 1) * pageSize : page * pageSize;
+          let i = index
         "
       >
-      <div>
-        <app-product id = "{{i}}"[product]="product" ></app-product>
-        <button class="delete" (click)="func(product)">x</button>
-      </div>
+        <div>
+          <button *ngIf="checkUser()" class="edit" onclick="document.location='edit'">E</button>
+          <app-product id="{{ i }}" [product]="product"></app-product>
+          <button *ngIf="checkUser()" class="delete" (click)="func(product)">
+            x
+          </button>
+        </div>
       </tr>
     </form>
   </div>
