@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { userAuth } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { inject } from '@angular/core';
 import {mainpageguardGuard} from 'src/app/services/guard.service';
 @Component({
   selector: 'app-login-page',

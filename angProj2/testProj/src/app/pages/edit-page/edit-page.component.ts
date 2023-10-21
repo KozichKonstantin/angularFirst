@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/prod';
+import { SaveService } from 'src/app/services/save.service';
 @Component({
   selector: 'app-edit-page',
   templateUrl: './edit-page.component.html',
@@ -16,11 +17,9 @@ export class EditPageComponent {
   public locationInp: string;
 
   constructor(
-    private router: Router){
+    private router: Router,
+    private saveServ: SaveService){
 
-  }
-  post(){
-    console.log('posted lol')
   }
   saveEl(a: string, b: string, c: string, d: string, e: string, f: string, g: string){
     const newProd: IProduct = {
@@ -31,6 +30,9 @@ export class EditPageComponent {
       unit: f,
       location: g
     }
+    this.saveServ.postSave(newProd).subscribe((prod)=>{
+      
+    })
     return console.log(newProd)
 
   }

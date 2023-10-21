@@ -17,7 +17,7 @@ app.use(cors())
 app.listen(Port, (error) => {
   error ? console.log(error) : console.log(`listening port ${Port}`);
 });
-const db = [
+let db = [
   {
     name: "Sensor 1",
     model: "PC1212",
@@ -165,5 +165,11 @@ app.post('/login', jsonParcer(), (req,res)=>{
       res.send(users[2])
     }
   }
+})
+app.post('/save', jsonParcer(), (req, res)=>{
+  console.log(req.body)
+  db.push(req.body)
+  console.log(db)
+  res.end();
 })
 
