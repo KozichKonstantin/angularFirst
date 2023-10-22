@@ -40,7 +40,7 @@
         <input type="number" name="numberMax" class="small" value="45" formControlName="numberMax"/>
       </div>
       <div class="block">
-        <select name="typeSelect" id="" [(ngModel)]="typeSelect">
+        <select name="typeSelect" id="" formControlName="typeSelect">
           <option value disabled selected>Select</option>
           <option>Pressure</option>
           <option>Voltage</option>
@@ -49,7 +49,7 @@
         </select>
       </div>
       <div class="block">
-        <select name="unitSelect" id="" [(ngModel)]="unitSelect">
+        <select name="unitSelect" id="" formControlName="unitSelect">
           <option value disabled selected>Select</option>
           <option>bar</option>
           <option>voltage</option>
@@ -70,7 +70,7 @@
     </form>
   </form>
   <div class="buttons">
-    <button type="submit" (click)="saveEl(nameInp.value, modelInp.value, typeSelect, numberMin.value, numberMax.value, unitSelect, locationInp.value)" (click)="goHome('post')">Save</button>
+    <button type="submit" (click)="saveEl(nameInp.value, modelInp.value, typeSelect.value, numberMin.value, numberMax.value, unitSelect.value, locationInp.value)" (click)="goHome('post')">Save</button>
     <button type="submit" (click)="goHome()">Cancel</button>
   </div>
 </div>

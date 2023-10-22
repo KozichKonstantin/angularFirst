@@ -9,13 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./edit-page.component.css'],
 })
 export class EditPageComponent implements OnInit {
-  // public nameInp: string;
-  // public modelInp: string;
-  // public numberMin: string;
-  // public numberMax: string;
-  public typeSelect: string;
-  public unitSelect: string;
-  // public locationInp: string;
+  // public typeSelect: string;
+  // public unitSelect: string;
   constructor(private router: Router, private saveServ: SaveService) {}
   form = new FormGroup({
     nameInp: new FormControl<string>('', [
@@ -28,6 +23,8 @@ export class EditPageComponent implements OnInit {
     ]),
     numberMin: new FormControl<number>(0, [Validators.required]),
     numberMax: new FormControl<number>(0, [Validators.required]),
+    typeSelect: new FormControl<string>('', [Validators.required]),
+    unitSelect: new FormControl<string>('', [Validators.required]), 
     locationInp: new FormControl<string>('', [
       Validators.required,
       Validators.maxLength(40),
@@ -45,9 +42,16 @@ export class EditPageComponent implements OnInit {
   get numberMax() {
     return this.form.controls.numberMax as FormControl;
   }
+  get typeSelect (){
+    return this.form.controls.typeSelect as FormControl;
+  }
+  get unitSelect(){
+    return this.form.controls.unitSelect as FormControl;
+  }
   get locationInp() {
     return this.form.controls.locationInp as FormControl;
   }
+  
   saveEl(
     nameInp: string,
     modelInp: string,
