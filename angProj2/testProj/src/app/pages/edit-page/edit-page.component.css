@@ -27,6 +27,12 @@ form{
 .line{
     display: flex;
 }
+.errMess{
+    height: 30px;
+    color: red;
+    font-size: 20px;
+    border: 1px solid red;
+}
 h4{
     margin-top: 3px;
     margin-left: 5px;

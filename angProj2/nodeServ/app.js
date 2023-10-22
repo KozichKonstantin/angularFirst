@@ -142,18 +142,18 @@ app.get("/getInfo", (req,res)=>{
   }
       res.send(massQ)
 })
-app.post("/postinfo",jsonParcer, (req, res) => {
-  console.log('aba')
-  if(!req.body.min) return (res.sendStatus(400))
-  console.log(req.body.min)
-  let massQ = []
-  let min = req.body.min;
-  let max = req.body.max;
-  for(let i = min; i<max;i++){
-    massQ.push(db[i])
-  }
-      res.send(massQ)
-});
+// app.post("/postinfo",jsonParcer, (req, res) => {
+//   console.log('aba')
+//   if(!req.body.min) return (res.sendStatus(400))
+//   console.log(req.body.min)
+//   let massQ = []
+//   let min = req.body.min;
+//   let max = req.body.max;
+//   for(let i = min; i<max;i++){
+//     massQ.push(db[i])
+//   }
+//       res.send(massQ)
+// });
 app.post('/login', jsonParcer(), (req,res)=>{
   for (let i =0; i < users.length; i++){
     if((req.body.login == users[i].login)&&(req.body.password == users[i].password)){
