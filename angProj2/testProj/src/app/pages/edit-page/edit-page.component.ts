@@ -70,6 +70,7 @@ export class EditPageComponent implements OnInit {
       location: locationInp,
     };
     this.saveServ.postSave(newProd).subscribe((prod) => {});
+    localStorage.setItem('newProd', JSON.stringify(newProd));
     return console.log(newProd);
   }
   goHome(value: string = '') {
