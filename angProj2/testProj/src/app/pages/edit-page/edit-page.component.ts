@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/prod';
+import { IProductEdit } from 'src/app/models/editProd';
 import { SaveService } from 'src/app/services/save.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
@@ -11,6 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class EditPageComponent implements OnInit {
   // public typeSelect: string;
   // public unitSelect: string;
+  public editing: IProductEdit;
   constructor(private router: Router, private saveServ: SaveService) {}
   form = new FormGroup({
     nameInp: new FormControl<string>('', [
@@ -24,7 +26,7 @@ export class EditPageComponent implements OnInit {
     numberMin: new FormControl<number>(0, [Validators.required]),
     numberMax: new FormControl<number>(0, [Validators.required]),
     typeSelect: new FormControl<string>('', [Validators.required]),
-    unitSelect: new FormControl<string>('', [Validators.required]), 
+    unitSelect: new FormControl<string>('', [Validators.required]),
     locationInp: new FormControl<string>('', [
       Validators.required,
       Validators.maxLength(40),
@@ -42,16 +44,15 @@ export class EditPageComponent implements OnInit {
   get numberMax() {
     return this.form.controls.numberMax as FormControl;
   }
-  get typeSelect (){
+  get typeSelect() {
     return this.form.controls.typeSelect as FormControl;
   }
-  get unitSelect(){
+  get unitSelect() {
     return this.form.controls.unitSelect as FormControl;
   }
   get locationInp() {
     return this.form.controls.locationInp as FormControl;
   }
-  
   saveEl(
     nameInp: string,
     modelInp: string,
@@ -81,5 +82,12 @@ export class EditPageComponent implements OnInit {
       this.router.navigate(['main']);
     }
   }
-  ngOnInit(): void {}
+  checkType(){
+    if(localStorage.getItem('edit') != null){
+      this.editing = JSON.parse(localStorage.getItem('edit')+'');
+    }
+  }
+  ngOnInit(): void {
+    this.checkType()
+  }
 }

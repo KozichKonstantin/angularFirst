@@ -27,11 +27,13 @@
     </div>
     <form class="column" [formGroup]="form">
       <div class="block line">
-        <input name="Name" placeholder="Name"  formControlName="nameInp"/>
+        <input *ngIf="!editing" name="Name" placeholder="Name"  formControlName="nameInp" value=""/>
+        <input *ngIf="editing" name="Name" placeholder="{{editing.name}}"  formControlName="nameInp" value=""/>
         <p class="errMess" *ngIf="nameInp.errors?.maxlength && nameInp.touched">Too long</p>
       </div>
       <div class="block line">
-        <input name="Model" placeholder="Model" formControlName="modelInp"/>
+        <input *ngIf="!editing" name="Model" placeholder="Model" formControlName="modelInp"/>
+        <input *ngIf="editing" name="Model" placeholder="{{editing.model}}" formControlName="modelInp"/>
         <p class="errMess" *ngIf="modelInp.errors?.maxlength && modelInp.touched">Too long</p>
       </div>
       <div class="block line">
