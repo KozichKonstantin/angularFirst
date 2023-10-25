@@ -19,6 +19,7 @@ app.listen(Port, (error) => {
 });
 let db = [
   {
+    id: 0,
     name: "Sensor 1",
     model: "PC1212",
     type: "Pressure",
@@ -27,6 +28,7 @@ let db = [
     location: "Room1",
   },
   {
+    id: 1,
     name: "Sensor 2",
     model: "EH-567",
     type: "Voltage",
@@ -35,6 +37,7 @@ let db = [
     location: "Room1",
   },
   {
+    id: 2,
     name: "Sensor 3",
     model: "TER-21",
     type: "Temperature",
@@ -43,6 +46,7 @@ let db = [
     location: "Room2",
   },
   {
+    id: 3,
     name: "Sensor 4",
     model: "H94",
     type: "Humidity",
@@ -51,6 +55,7 @@ let db = [
     location: "Room3",
   },
   {
+    id: 4,
     name: "Sensor 5",
     model: "PC1212",
     type: "Pressure",
@@ -59,6 +64,7 @@ let db = [
     location: "Room1",
   },
   {
+    id: 5,
     name: "Sensor 6",
     model: "EH-567",
     type: "Voltage",
@@ -67,6 +73,7 @@ let db = [
     location: "Room1",
   },
   {
+    id: 6 ,
     name: "Sensor 7",
     model: "TER-21",
     type: "Temperature",
@@ -75,6 +82,7 @@ let db = [
     location: "Room2",
   },
   {
+    id: 7,
     name: "Sensor 8",
     model: "H94",
     type: "Humidity",
@@ -83,6 +91,7 @@ let db = [
     location: "Room3",
   },
   {
+    id: 8,
     name: "Sensor 9",
     model: "PC1212",
     type: "Pressure",
@@ -91,6 +100,7 @@ let db = [
     location: "Room1",
   },
   {
+    id: 9,
     name: "Sensor 10",
     model: "EH-567",
     type: "Voltage",
@@ -98,7 +108,7 @@ let db = [
     unit: "voltage",
     location: "Room1",
   },
-  {
+  { id: 10,
     name: "Sensor 11",
     model: "TER-21",
     type: "Temperature",
@@ -107,6 +117,7 @@ let db = [
     location: "Room2",
   },
   {
+    id: 11,
     name: "Sensor 12",
     model: "H94",
     type: "Humidity",

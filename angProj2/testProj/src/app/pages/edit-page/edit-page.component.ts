@@ -10,8 +10,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./edit-page.component.css'],
 })
 export class EditPageComponent implements OnInit {
-  // public typeSelect: string;
-  // public unitSelect: string;
   public editing: IProductEdit;
   constructor(private router: Router, private saveServ: SaveService) {}
   form = new FormGroup({
@@ -54,6 +52,7 @@ export class EditPageComponent implements OnInit {
     return this.form.controls.locationInp as FormControl;
   }
   saveEl(
+    id: number = 13,
     nameInp: string,
     modelInp: string,
     typeSelect: string,
@@ -62,7 +61,8 @@ export class EditPageComponent implements OnInit {
     unitSelect: string,
     locationInp: string
   ) {
-    const newProd: IProduct = {
+    const newProd: IProductEdit = {
+      id: id,
       name: nameInp,
       model: modelInp,
       type: typeSelect,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../../models/prod';
+// import { IProduct } from '../../models/prod';
 import { IProductEdit } from 'src/app/models/editProd';
 import { ProductsService } from 'src/app/services/products-service';
 import { Router } from '@angular/router';
@@ -10,13 +10,13 @@ import { EditPageComponent } from '../edit-page/edit-page.component';
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent implements OnInit {
-  products: IProduct[] = [];
+  products: IProductEdit[] = [];
   public term : string;
   public searchValue: string;
   public page : number;
   public pageSize : number;
   public collectionSize : number;
-  delete(product:IProduct){
+  delete(product:IProductEdit){
       this.products = this.products.filter((productEl)=> productEl !== product)
   }
   checkUser(){
