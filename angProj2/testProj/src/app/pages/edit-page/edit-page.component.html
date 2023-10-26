@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Add/edit</h1>
-  <form  >
+  <form>
     <div class="column">
       <div class="block">
-        <h3 >Name</h3>
+        <h3>Name</h3>
       </div>
       <div class="block">
         <h3>Model*</h3>
@@ -27,19 +27,60 @@
     </div>
     <form class="column" [formGroup]="form">
       <div class="block line">
-        <input *ngIf="!editing" name="Name" placeholder="Name"  formControlName="nameInp" value=""/>
-        <input *ngIf="editing" name="Name" placeholder="{{editing.name}}"  formControlName="nameInp" value=""/>
-        <p class="errMess" *ngIf="nameInp.errors?.maxlength && nameInp.touched">Too long</p>
+        <input
+          *ngIf="!editing"
+          name="Name"
+          placeholder="Name"
+          formControlName="nameInp"
+          value=""
+        />
+        <input
+          *ngIf="editing"
+          name="Name"
+          placeholder="{{ editing.name }}"
+          formControlName="nameInp"
+          value=""
+        />
+        <p class="errMess" *ngIf="nameInp.errors?.maxlength && nameInp.touched">
+          Too long
+        </p>
       </div>
       <div class="block line">
-        <input *ngIf="!editing" name="Model" placeholder="Model" formControlName="modelInp"/>
-        <input *ngIf="editing" name="Model" placeholder="{{editing.model}}" formControlName="modelInp"/>
-        <p class="errMess" *ngIf="modelInp.errors?.maxlength && modelInp.touched">Too long</p>
+        <input
+          *ngIf="!editing"
+          name="Model"
+          placeholder="Model"
+          formControlName="modelInp"
+        />
+        <input
+          *ngIf="editing"
+          name="Model"
+          placeholder="{{ editing.model }}"
+          formControlName="modelInp"
+        />
+        <p
+          class="errMess"
+          *ngIf="modelInp.errors?.maxlength && modelInp.touched"
+        >
+          Too long
+        </p>
       </div>
       <div class="block line">
-        <input type="number" name="numberMin" class="small" value="12" formControlName="numberMin"/>
+        <input
+          type="number"
+          name="numberMin"
+          class="small"
+          value="12"
+          formControlName="numberMin"
+        />
         <h4>To</h4>
-        <input type="number" name="numberMax" class="small" value="45" formControlName="numberMax"/>
+        <input
+          type="number"
+          name="numberMax"
+          class="small"
+          value="45"
+          formControlName="numberMax"
+        />
       </div>
       <div class="block">
         <select name="typeSelect" id="" formControlName="typeSelect">
@@ -60,8 +101,17 @@
         </select>
       </div>
       <div class="block line">
-        <input name="locationInp" placeholder="location" formControlName="locationInp"/>
-        <p class="errMess" *ngIf="locationInp.errors?.maxlength && locationInp.touched">Too long</p>
+        <input
+          name="locationInp"
+          placeholder="location"
+          formControlName="locationInp"
+        />
+        <p
+          class="errMess"
+          *ngIf="locationInp.errors?.maxlength && locationInp.touched"
+        >
+          Too long
+        </p>
       </div>
       <div class="block">
         <input
@@ -72,7 +122,24 @@
     </form>
   </form>
   <div class="buttons">
-    <button type="submit" (click)="saveEl(13 ,nameInp.value, modelInp.value, typeSelect.value, numberMin.value, numberMax.value, unitSelect.value, locationInp.value)" (click)="goHome('post')">Save</button>
+    <button
+      type="submit"
+      (click)="
+        saveEl(
+          13,
+          nameInp.value,
+          modelInp.value,
+          typeSelect.value,
+          numberMin.value,
+          numberMax.value,
+          unitSelect.value,
+          locationInp.value
+        )
+      "
+      (click)="goHome('post')"
+    >
+      Save
+    </button>
     <button type="submit" (click)="goHome()">Cancel</button>
   </div>
 </div>

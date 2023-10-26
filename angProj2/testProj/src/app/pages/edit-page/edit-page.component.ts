@@ -82,12 +82,12 @@ export class EditPageComponent implements OnInit {
       this.router.navigate(['main']);
     }
   }
-  checkType(){
-    if(localStorage.getItem('edit') != null){
-      this.editing = JSON.parse(localStorage.getItem('edit')+'');
+  checkType() {
+    if (localStorage.getItem('edit') != null) {
+      this.editing = JSON.parse(localStorage.getItem('edit') + '');
     }
   }
   ngOnInit(): void {
-    this.checkType()
+    this.checkType();
   }
 }

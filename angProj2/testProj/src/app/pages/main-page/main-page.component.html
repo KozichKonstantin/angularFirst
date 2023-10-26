@@ -27,7 +27,13 @@
         "
       >
         <div>
-          <button *ngIf="checkUser()" class="edit" (click)="editingPage('edit', product.id)">E</button>
+          <button
+            *ngIf="checkUser()"
+            class="edit"
+            (click)="editingPage('edit', product.id)"
+          >
+            E
+          </button>
           <app-product id="{{ product.id }}" [product]="product"></app-product>
           <button *ngIf="checkUser()" class="delete" (click)="delete(product)">
             x

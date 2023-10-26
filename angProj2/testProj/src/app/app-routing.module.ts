@@ -10,12 +10,12 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainPageComponent,
-    canActivate: [mainpageguardGuard]
+    canActivate: [mainpageguardGuard],
   },
   {
     path: 'edit',
-    component: EditPageComponent, 
-    canActivate: [mainpageguardGuard]
+    component: EditPageComponent,
+    canActivate: [mainpageguardGuard],
   },
   {
     path: '',
