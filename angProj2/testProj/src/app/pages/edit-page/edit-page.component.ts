@@ -12,6 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class EditPageComponent implements OnInit {
   public editing: IProductEdit;
   constructor(private router: Router, private saveServ: SaveService) {}
+  public minNumber: number ;
+  
   form = new FormGroup({
     nameInp: new FormControl<string>('', [
       Validators.required,
@@ -22,7 +24,10 @@ export class EditPageComponent implements OnInit {
       Validators.maxLength(15),
     ]),
     numberMin: new FormControl<number>(0, [Validators.required]),
-    numberMax: new FormControl<number>(0, [Validators.required]),
+    numberMax: new FormControl<number>(1, [
+      Validators.required,
+      // Validators.min(),
+    ]),
     typeSelect: new FormControl<string>('', [Validators.required]),
     unitSelect: new FormControl<string>('', [Validators.required]),
     locationInp: new FormControl<string>('', [
@@ -50,6 +55,13 @@ export class EditPageComponent implements OnInit {
   }
   get locationInp() {
     return this.form.controls.locationInp as FormControl;
+  }
+  checkValues(min  =this.form.controls.numberMin.value, max =this.form.controls.numberMax.value){
+    if( min != null && max != null && min < max){
+      return false
+    }else{
+      return true
+    }
   }
   saveEl(
     id: number = 13,
