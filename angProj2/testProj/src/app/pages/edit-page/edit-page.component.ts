@@ -12,8 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class EditPageComponent implements OnInit {
   public editing: IProductEdit;
   constructor(private router: Router, private saveServ: SaveService) {}
-  public minNumber: number ;
-  
+  public minNumber: number;
+
   form = new FormGroup({
     nameInp: new FormControl<string>('', [
       Validators.required,
@@ -56,30 +56,32 @@ export class EditPageComponent implements OnInit {
   get locationInp() {
     return this.form.controls.locationInp as FormControl;
   }
-  checkValues(min  =this.form.controls.numberMin.value, max =this.form.controls.numberMax.value){
-    if( min != null && max != null && min < max){
-      return false
-    }else{
-      return true
+  checkValues(
+    min = this.form.controls.numberMin.value,
+    max = this.form.controls.numberMax.value
+  ) {
+    if (min != null && max != null && min < max) {
+      return false;
+    } else {
+      return true;
     }
   }
-  saveEl( newProd: IProductEdit) {
-    if(localStorage.getItem('action')== 'add'){
+  saveEl(newProd: IProductEdit) {
+    if (localStorage.getItem('action') == 'add') {
       localStorage.setItem('newProd', JSON.stringify(newProd));
       return console.log(newProd);
-    }
-    else{
-      if(localStorage.getItem('action') == 'edit'){
-        newProd.id  = this.editing.id;
+    } else {
+      if (localStorage.getItem('action') == 'edit') {
+        newProd.id = this.editing.id;
         localStorage.setItem('edit', JSON.stringify(newProd));
       }
     }
   }
   goHome() {
-      this.router.navigate(['main']);
+    this.router.navigate(['main']);
   }
   checkType() {
-    if (localStorage.getItem('action') ==  'edit') {
+    if (localStorage.getItem('action') == 'edit') {
       this.editing = JSON.parse(localStorage.getItem('edit') + '');
     }
   }

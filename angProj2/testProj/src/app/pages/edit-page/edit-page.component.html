@@ -82,11 +82,11 @@
           formControlName="numberMax"
         />
         <p
-        class="errMess"
-        *ngIf="checkValues() && numberMin.touched && numberMax.touched"
-      >
-        Change numbers
-      </p>
+          class="errMess"
+          *ngIf="checkValues() && numberMin.touched && numberMax.touched"
+        >
+          Change numbers
+        </p>
       </div>
       <div class="block">
         <select name="typeSelect" id="" formControlName="typeSelect">
@@ -131,15 +131,15 @@
     <button
       type="submit"
       (click)="
-        saveEl(
-          {id: 13,
-          name:nameInp.value,
+        saveEl({
+          id: 13,
+          name: nameInp.value,
           model: modelInp.value,
           type: typeSelect.value,
           range: numberMin.value + '-' + numberMax.value,
           unit: unitSelect.value,
-          location: locationInp.value}
-        )
+          location: locationInp.value
+        })
       "
       (click)="goHome()"
     >

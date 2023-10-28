@@ -25,16 +25,18 @@ export class MainPageComponent implements OnInit {
       return false;
     }
   }
-  checkEditions(){
-    if(localStorage.getItem('edit') != null ){
-      const eddited: IProductEdit = JSON.parse(localStorage.getItem('edit')+ '')
+  checkEditions() {
+    if (localStorage.getItem('edit') != null) {
+      const eddited: IProductEdit = JSON.parse(
+        localStorage.getItem('edit') + ''
+      );
       this.products[eddited.id] = eddited;
     }
   }
   editingPage(type: string = 'addNew', id: number = 0) {
     if (type == 'addNew') {
       this.router.navigate(['edit']);
-      localStorage.setItem('action', 'add')
+      localStorage.setItem('action', 'add');
     } else {
       let editProd: IProductEdit = {
         id: id,
@@ -46,7 +48,7 @@ export class MainPageComponent implements OnInit {
         location: this.products[id].location,
       };
       localStorage.setItem('edit', JSON.stringify(editProd));
-      localStorage.setItem('action', 'edit')
+      localStorage.setItem('action', 'edit');
       this.router.navigate(['edit']);
     }
   }
@@ -69,7 +71,6 @@ export class MainPageComponent implements OnInit {
       if (localStorage.getItem('newProd') != null) {
         localStorage.getItem('newProd');
         this.products.push(JSON.parse('' + localStorage.getItem('newProd')));
-        // localStorage.removeItem('newProd')
       }
     });
   }
