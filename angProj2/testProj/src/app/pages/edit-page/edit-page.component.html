@@ -83,7 +83,7 @@
         />
         <p
         class="errMess"
-        *ngIf="checkValues()"
+        *ngIf="checkValues() && numberMin.touched && numberMax.touched"
       >
         Change numbers
       </p>
@@ -132,17 +132,16 @@
       type="submit"
       (click)="
         saveEl(
-          13,
-          nameInp.value,
-          modelInp.value,
-          typeSelect.value,
-          numberMin.value,
-          numberMax.value,
-          unitSelect.value,
-          locationInp.value
+          {id: 13,
+          name:nameInp.value,
+          model: modelInp.value,
+          type: typeSelect.value,
+          range: numberMin.value + '-' + numberMax.value,
+          unit: unitSelect.value,
+          location: locationInp.value}
         )
       "
-      (click)="goHome('post')"
+      (click)="goHome()"
     >
       Save
     </button>

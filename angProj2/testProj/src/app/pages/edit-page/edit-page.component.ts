@@ -63,39 +63,23 @@ export class EditPageComponent implements OnInit {
       return true
     }
   }
-  saveEl(
-    id: number = 13,
-    nameInp: string,
-    modelInp: string,
-    typeSelect: string,
-    numberMin: string,
-    numberMax: string,
-    unitSelect: string,
-    locationInp: string
-  ) {
-    const newProd: IProductEdit = {
-      id: id,
-      name: nameInp,
-      model: modelInp,
-      type: typeSelect,
-      range: numberMin + ' - ' + numberMax,
-      unit: unitSelect,
-      location: locationInp,
-    };
-    this.saveServ.postSave(newProd).subscribe((prod) => {});
-    localStorage.setItem('newProd', JSON.stringify(newProd));
-    return console.log(newProd);
-  }
-  goHome(value: string = '') {
-    if (value == 'post') {
-      console.log('like posted');
-      this.router.navigate(['main']);
-    } else {
-      this.router.navigate(['main']);
+  saveEl( newProd: IProductEdit) {
+    if(localStorage.getItem('action')== 'add'){
+      localStorage.setItem('newProd', JSON.stringify(newProd));
+      return console.log(newProd);
+    }
+    else{
+      if(localStorage.getItem('action') == 'edit'){
+        newProd.id  = this.editing.id;
+        localStorage.setItem('edit', JSON.stringify(newProd));
+      }
     }
   }
+  goHome() {
+      this.router.navigate(['main']);
+  }
   checkType() {
-    if (localStorage.getItem('edit') != null) {
+    if (localStorage.getItem('action') ==  'edit') {
       this.editing = JSON.parse(localStorage.getItem('edit') + '');
     }
   }
